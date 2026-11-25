@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Obra Fácil Pro — Documentação</title>
+  <style>
+    :root {
+      --bg: #0f1714;
+      --card: #1a2621;
+      --text: #e8f0ec;
+      --muted: #9bb0a6;
+      --accent: #3d9b6a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #1e3d30, var(--bg));
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 4rem;
+    }
+    h1 { font-size: 2rem; margin: 0 0 0.5rem; }
+    p { color: var(--muted); }
+    ul { list-style: none; padding: 0; margin: 2rem 0; }
+    li { margin: 0.75rem 0; }
+    a {
+      display: block;
+      padding: 1rem 1.25rem;
+      background: var(--card);
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 12px;
+      border: 1px solid #2a3d34;
+    }
+    a:hover { border-color: var(--accent); }
+    a strong { color: var(--accent); display: block; }
+    footer { margin-top: 3rem; font-size: 0.875rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Obra Fácil Pro</h1>
+    <p>Documentação legal e páginas públicas do aplicativo de construção civil (offline, sem cadastro obrigatório).</p>
+    <ul>
+      <li>
+        <a href="privacy/">
+          <strong>Política de Privacidade</strong>
+          Como tratamos dados no dispositivo, anúncios e compras.
+        </a>
+      </li>
+      <li>
+        <a href="terms/">
+          <strong>Termos de Uso</strong>
+          Condições de uso do app, calculadoras e plano Premium.
+        </a>
+      </li>
+    </ul>
+    <footer>
+      Repositório público de políticas — sem código do aplicativo.
+    </footer>
+  </main>
+</body>
+</html>
