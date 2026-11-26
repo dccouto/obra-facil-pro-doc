@@ -2,7 +2,6 @@
 
 Repositório **público** com políticas e páginas estáticas do app **Obra Fácil Pro**.
 
-> O código Flutter do aplicativo fica em outro repositório (`obra-facil-pro`, privado).  
 > **Este repo não contém código do app.**
 
 ## Propósito
