@@ -3,68 +3,240 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Obra Fácil Pro — Documentação</title>
+  <title>Obra Fácil Pro — Cálculos e obras no bolso</title>
+  <meta name="description" content="App Android offline para calculadoras de obra, gestão de obras e orçamentos. Sem cadastro. Premium opcional." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0f1714;
-      --card: #1a2621;
-      --text: #e8f0ec;
-      --muted: #9bb0a6;
-      --accent: #3d9b6a;
+      --ink: #14201a;
+      --paper: #eef4ef;
+      --moss: #1f5c3f;
+      --leaf: #2f8f5b;
+      --sand: #c8b48a;
+      --muted: #5a6b61;
+      --glow: rgba(47, 143, 91, 0.35);
     }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: "Segoe UI", system-ui, sans-serif;
-      background: radial-gradient(1200px 600px at 10% -10%, #1e3d30, var(--bg));
-      color: var(--text);
-      min-height: 100vh;
-      line-height: 1.6;
+      font-family: Outfit, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 500px at 85% -10%, rgba(200, 180, 138, 0.35), transparent 55%),
+        radial-gradient(700px 420px at -5% 20%, rgba(47, 143, 91, 0.18), transparent 50%),
+        linear-gradient(180deg, #f7faf7 0%, var(--paper) 40%, #e4ebe5 100%);
+      line-height: 1.55;
     }
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 3rem 1.25rem 4rem;
+    a { color: var(--moss); }
+    .wrap { width: min(1080px, 92vw); margin: 0 auto; }
+
+    /* Hero: one composition */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      padding: 1.25rem 0 3.5rem;
+      position: relative;
+      overflow: hidden;
     }
-    h1 { font-size: 2rem; margin: 0 0 0.5rem; }
-    p { color: var(--muted); }
-    ul { list-style: none; padding: 0; margin: 2rem 0; }
-    li { margin: 0.75rem 0; }
-    a {
-      display: block;
-      padding: 1rem 1.25rem;
-      background: var(--card);
-      color: var(--text);
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(20, 32, 26, 0.88) 0%, rgba(31, 92, 63, 0.72) 48%, rgba(20, 32, 26, 0.55) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.06' stroke-width='1'%3E%3Cpath d='M0 40h160M0 80h160M0 120h160M40 0v160M80 0v160M120 0v160'/%3E%3C/g%3E%3C/svg%3E"),
+        radial-gradient(circle at 70% 40%, #3a7a55, #0d1813 70%);
+      background-size: cover, 120px 120px, cover;
+      z-index: 0;
+      animation: wash 12s ease-in-out infinite alternate;
+    }
+    @keyframes wash {
+      from { filter: saturate(1) brightness(1); }
+      to { filter: saturate(1.08) brightness(1.05); }
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      color: #f4faf6;
+      padding-top: 4rem;
+      animation: rise 0.9s ease-out both;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: none; }
+    }
+    .brand {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(2.8rem, 9vw, 5.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      margin: 0 0 1rem;
+      max-width: 12ch;
+    }
+    .tagline {
+      font-size: clamp(1.15rem, 2.6vw, 1.45rem);
+      font-weight: 500;
+      margin: 0 0 0.65rem;
+      max-width: 28ch;
+    }
+    .lede {
+      margin: 0 0 1.75rem;
+      color: rgba(244, 250, 246, 0.78);
+      max-width: 36ch;
+      font-size: 1.05rem;
+    }
+    .ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.25rem;
+      border-radius: 999px;
       text-decoration: none;
-      border-radius: 12px;
-      border: 1px solid #2a3d34;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
-    a:hover { border-color: var(--accent); }
-    a strong { color: var(--accent); display: block; }
-    footer { margin-top: 3rem; font-size: 0.875rem; color: var(--muted); }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: #f4faf6;
+      color: var(--ink);
+      box-shadow: 0 10px 30px var(--glow);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: #f4faf6;
+      border: 1px solid rgba(244, 250, 246, 0.35);
+    }
+
+    section {
+      padding: 4.5rem 0 1rem;
+      animation: rise 0.8s ease-out both;
+      animation-delay: 0.15s;
+    }
+    section h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(1.7rem, 4vw, 2.25rem);
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    section .sub {
+      margin: 0 0 2rem;
+      color: var(--muted);
+      max-width: 42ch;
+    }
+    .grid {
+      display: grid;
+      gap: 1.25rem 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .item h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    .item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .accent-bar {
+      width: 3rem;
+      height: 3px;
+      background: linear-gradient(90deg, var(--leaf), var(--sand));
+      border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+    .premium {
+      margin: 3rem 0 0;
+      padding: 1.75rem 1.5rem;
+      border-radius: 1.25rem;
+      background: linear-gradient(135deg, #173528 0%, #1f5c3f 55%, #2a6b48 100%);
+      color: #f4faf6;
+      box-shadow: 0 18px 50px rgba(20, 32, 26, 0.18);
+    }
+    .premium h2 { color: #fff; }
+    .premium .sub { color: rgba(244, 250, 246, 0.75); }
+    .premium ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: rgba(244, 250, 246, 0.9);
+    }
+    footer {
+      padding: 3.5rem 0 2.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(20, 32, 26, 0.08);
+      margin-top: 3rem;
+    }
+    footer nav { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-bottom: 0.75rem; }
+    footer a { text-decoration: none; font-weight: 500; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before { animation: none !important; transition: none !important; }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Obra Fácil Pro</h1>
-    <p>Documentação legal e páginas públicas do aplicativo de construção civil (offline, sem cadastro obrigatório).</p>
-    <ul>
-      <li>
-        <a href="privacy/">
-          <strong>Política de Privacidade</strong>
-          Como tratamos dados no dispositivo, anúncios e compras.
-        </a>
-      </li>
-      <li>
-        <a href="terms/">
-          <strong>Termos de Uso</strong>
-          Condições de uso do app, calculadoras e plano Premium.
-        </a>
-      </li>
-    </ul>
-    <footer>
-      Repositório público de políticas — sem código do aplicativo.
-    </footer>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <h1 class="brand">Obra Fácil Pro</h1>
+      <p class="tagline">Cálculos e obras no bolso.</p>
+      <p class="lede">Offline, sem cadastro. Estime materiais e organize suas obras no aparelho.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="privacy/">Política de privacidade</a>
+        <a class="btn btn-ghost" href="terms/">Termos de uso</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <div class="accent-bar"></div>
+      <h2>Feito para o canteiro</h2>
+      <p class="sub">Ferramentas práticas para quem calcula, orça e acompanha obra no dia a dia.</p>
+      <div class="grid">
+        <div class="item">
+          <h3>Calculadoras</h3>
+          <p>Pisos, pintura, paredes, concreto, argamassa, telhado, elétrica e hidráulica.</p>
+        </div>
+        <div class="item">
+          <h3>Obras e materiais</h3>
+          <p>Organize obras, ambientes e lista de materiais com limites no plano gratuito.</p>
+        </div>
+        <div class="item">
+          <h3>Orçamentos</h3>
+          <p>Monte orçamentos e exporte PDF ou CSV quando precisar apresentar ao cliente.</p>
+        </div>
+        <div class="item">
+          <h3>100% no aparelho</h3>
+          <p>Sem conta obrigatória. Seus dados ficam no telefone; backup JSON no Premium.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="premium">
+      <h2>Premium quando precisar</h2>
+      <p class="sub">Assinatura mensal ou compra vitalícia via Google Play. Mais obras, materiais, backup e sem anúncios.</p>
+      <ul>
+        <li>Mensal e vitalício no app (Meu Plano)</li>
+        <li>Restaurar compras pela conta Google</li>
+        <li>Free continua útil: calculadoras e gestão básica</li>
+      </ul>
+    </section>
   </main>
+
+  <footer class="wrap">
+    <nav>
+      <a href="privacy/">Privacidade</a>
+      <a href="terms/">Termos</a>
+      <a href="mailto:obrafacilpro.app@gmail.com">Contato</a>
+    </nav>
+    <p>Obra Fácil Pro · Android · offline-first</p>
+  </footer>
 </body>
 </html>
