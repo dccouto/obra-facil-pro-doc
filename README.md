@@ -16,6 +16,7 @@ Repositório **público** com políticas e páginas estáticas do app **Obra Fá
 |---------|-----------|
 | [`privacy/index.html`](privacy/index.html) | Política de Privacidade |
 | [`terms/index.html`](terms/index.html) | Termos de Uso |
+| [`app-ads.txt`](app-ads.txt) | Autorização AdMob (verificação da loja) |
 | [`index.html`](index.html) | Página inicial com links |
 
 ## Como publicar (GitHub Pages)
@@ -27,6 +28,7 @@ Repositório **público** com políticas e páginas estáticas do app **Obra Fá
    - `https://dccouto.github.io/obra-facil-pro-doc/`
    - `https://dccouto.github.io/obra-facil-pro-doc/privacy/`
    - `https://dccouto.github.io/obra-facil-pro-doc/terms/`
+   - `https://dccouto.github.io/obra-facil-pro-doc/app-ads.txt`
 
 Opcional: domínio customizado em **Pages → Custom domain**.
 
